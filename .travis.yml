@@ -14,7 +14,9 @@ language: c
 install:
   - sudo mkdir -p /classes/ece2400/mnist
   - sudo chown travis:travis  /classes/ece2400/mnist
-  - touch /classes/ece2400/mnist/test
+  - cd /classes/ece2400/mnist
+  - wget https://github.com/ece2400/ece2400-mnist-travisci-cache/raw/master/mnist.tar.gz
+  - tar -xvf mnist.tar.gz
 
 #-------------------------------------------------------------------------
 # script
@@ -22,6 +24,7 @@ install:
 # Show the installed files
 
 script:
+  - pwd
   - ls /classes/ece2400/mnist
   - echo "done"
 
