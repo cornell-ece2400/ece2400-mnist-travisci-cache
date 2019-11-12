@@ -1,0 +1,27 @@
+#=========================================================================
+# Travis CI Configuration
+#=========================================================================
+
+language: c
+
+#-------------------------------------------------------------------------
+# install
+#-------------------------------------------------------------------------
+# We need to do a hack to make gcc default to
+# gcc-6. Normally we would just set the CC/CXX environment variables, but
+# we are not using them to simplify the Makefile we give students.
+
+install:
+  - sudo mkdir -p /classes/ece2400/mnist
+  - sudo chown travis:travis  /classes/ece2400/mnist
+  - touch /classes/ece2400/mnist/test
+
+#-------------------------------------------------------------------------
+# script
+#-------------------------------------------------------------------------
+# Show the installed files
+
+script:
+  - ls /classes/ece2400/mnist
+  - echo "done"
+
